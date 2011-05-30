@@ -39,8 +39,8 @@ Yes. Using your theme CSS, you can create the styles you need.
 
 = 0.1.1 =
 
-* Minor improvements
-* Added compatibility with WordPress 3.1.3
+* Minor improvements.
+* Added compatibility with WordPress 3.1.3.
 
 = 0.1 =
 
