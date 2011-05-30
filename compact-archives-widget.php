@@ -7,7 +7,7 @@
 	Author URI: http://www.aldolat.it/
 	Domain Path: /languages
 	Text Domain: caw-domain
-	Version: 0.1
+	Version: 0.1.1
 */
 
 /*
@@ -63,35 +63,36 @@ function caw_load_widget() {
 class CAW_Widget extends WP_Widget {
 	function CAW_Widget() {
 		$widget_ops = array(
-			'classname' => 'caw_widget',
+			'classname'   => 'caw_widget',
 			'description' => __( 'Create a widget for Compact Archives plugin', 'caw-domain' )
 		);
 		$this->WP_Widget( 'caw-widget', __( 'Compact Archives Widget', 'caw-domain' ), $widget_ops );
 	}
 
-	function widget($args, $instance) {
+	function widget( $args, $instance ) {
 		extract( $args );
 
 		$title = apply_filters( 'widget_title', $instance['title'] );
 		$widget_style = $instance['style'];
+
 		echo $before_widget;
 		if ( $title ) echo $before_title . $title . $after_title;
 		echo '<ul class="compact-archives">';
-		if ( function_exists( 'compact_archive' ) ) {
-			compact_archive( $style=$widget_style );
-		}
+			if ( function_exists( 'compact_archive' ) ) {
+				compact_archive( $style=$widget_style );
+			}
 		echo '</ul>';
 		echo $after_widget;
 	}
 
-	function update($new_instance, $old_instance) {
+	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags( $new_instance['title'] );
 		$instance['style'] = $new_instance['style'];
 		return $instance;
 	}
 
-	function form($instance) {
+	function form( $instance ) {
 		$defaults = array(
 			'title' => __( 'Archives by Month', 'caw-domain' ),
 			'style' => 'initial'
@@ -101,23 +102,23 @@ class CAW_Widget extends WP_Widget {
 		?>
 			<p>
 				<label for="<?php echo $this->get_field_id('title'); ?>">
-					<?php _e('Title:', 'caw-domain'); ?>
+					<?php _e( 'Title:', 'caw-domain' ); ?>
 				</label>
-				<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $instance['title']; ?>" />
+				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $instance['title']; ?>" />
 			</p>
 			<p>
-				<label for="<?php echo $this->get_field_id('style'); ?>">
-					<?php _e('Select the style:', 'caw-domain'); ?>
+				<label for="<?php echo $this->get_field_id( 'style' ); ?>">
+					<?php _e( 'Select the style:', 'caw-domain' ); ?>
 				</label>
-				<select name="<?php echo $this->get_field_name('style'); ?>" >
-					<option <?php selected('initial', $style); ?> value="initial">
-						<?php _e('Initials', 'caw-domain'); ?>
+				<select name="<?php echo $this->get_field_name( 'style' ); ?>" >
+					<option <?php selected( 'initial', $style ); ?> value="initial">
+						<?php _e( 'Initials', 'caw-domain' ); ?>
 					</option>
-					<option <?php selected('block', $style); ?> value="block">
-						<?php _e('Block', 'caw-domain'); ?>
+					<option <?php selected( 'block', $style ); ?> value="block">
+						<?php _e( 'Block', 'caw-domain' ); ?>
 					</option>
-					<option <?php selected('numeric', $style); ?> value="numeric">
-						<?php _e('Numeric', 'caw-domain'); ?>
+					<option <?php selected( 'numeric', $style ); ?> value="numeric">
+						<?php _e( 'Numeric', 'caw-domain' ); ?>
 					</option>
 				</select>
 			</p>
@@ -127,13 +128,17 @@ class CAW_Widget extends WP_Widget {
 
 /**
  * Make plugin available for i18n
- * Translations must be archived in the /languages/ directory
+ * Translations must be archived in the /languages directory
  *
  * @since 0.1
  */
 
-setlocale(LC_ALL, get_locale() . '.UTF8');
-load_plugin_textdomain( 'caw-domain', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+function caw_load_languages() {
+	load_plugin_textdomain( 'caw-domain', false, dirname( plugin_basename( __FILE__ ) ) . '/languages');
+}
 
+add_action( 'init', 'caw_load_languages' );
 
-/* CODE IS POETRY */
+/***********************************************************************
+ *                            CODE IS POETRY
+ **********************************************************************/
