@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Compact Archives Widget\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/compact-archives-widget\n"
-"POT-Creation-Date: 2011-05-30 13:03:54+00:00\n"
+"POT-Creation-Date: 2012-06-02 06:57:20+00:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Aldo Latino <aldolat@gmail.com>\n"
 "Language-Team: Aldo Latino <aldolat@gmail.com>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: compact-archives-widget.php:41
-msgid "\"Compact Archive\" plugin is not active on your WordPress. Please, <a href=\"%s\">install from here</a>: search for \"Compact Archive\", click on Install, and activate it."
-msgstr "Il plugin \"Compact Archive\" non è attivo su questa installazione di WordPress. <a href=\"%s\">Installarlo da qui</a>: cercare \"Compact Archive\", fare clic su Installa e attivarlo."
+msgid "\"Compact Archive\" plugin is not active on your WordPress. Please, <a href=\"%s\">install from here</a>: search for \"Compact Archives\", click on Install, and activate it."
+msgstr "Il plugin \"Compact Archive\" non è attivo su questa installazione di WordPress. <a href=\"%s\">Installarlo da qui</a>: cercare \"Compact Archives\", fare clic su Installa e attivarlo."
 
 #. #-#-#-#-#  caw-domain.pot (Compact Archives Widget 0.1.1)  #-#-#-#-#
 #. Description of the plugin/theme

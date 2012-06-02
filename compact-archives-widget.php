@@ -7,7 +7,7 @@
 	Author URI: http://www.aldolat.it/
 	Domain Path: /languages
 	Text Domain: caw-domain
-	Version: 0.1.1
+	Version: 0.1.2
 */
 
 /*
@@ -28,7 +28,7 @@
 */
 
 /**
- * Check if the main plugin Compact Archive is active
+ * Check if the main plugin Compact Archives is active
  * otherwise display a notice
  *
  * @since 0.1
@@ -37,8 +37,8 @@
 add_action( 'admin_init', 'caw_init' );
 
 function caw_init() {
-	if ( ! function_exists( 'compact_archive' ) ) {
-		add_action( 'admin_notices', create_function( '', "echo '<div class=\"error\"><p>".sprintf( __( '"Compact Archive" plugin is not active on your WordPress. Please, <a href="%s">install from here</a>: search for "Compact Archive", click on Install, and activate it.', 'caw-domain' ), admin_url( 'plugin-install.php' ) )."</p></div>';" ) );
+	if ( ! is_plugin_active( 'compact-archives/compact.php' ) ) {
+		add_action( 'admin_notices', create_function( '', "echo '<div class=\"error\"><p>".sprintf( __( '"Compact Archive" plugin is not active on your WordPress. Please, <a href="%s">install from here</a>: search for "Compact Archives", click on Install, and activate it.', 'caw-domain' ), admin_url( 'plugin-install.php' ) )."</p></div>';" ) );
 	}
 }
 
