@@ -37,6 +37,10 @@ Yes. Using your theme CSS, you can create the styles you need.
 
 == Changelog ==
 
+= 0.2 =
+
+* Fixed a typo.
+
 = 0.1.2 =
 
 * Minor improvement.
