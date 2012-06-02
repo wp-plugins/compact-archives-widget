@@ -7,7 +7,7 @@
 	Author URI: http://www.aldolat.it/
 	Domain Path: /languages
 	Text Domain: caw-domain
-	Version: 0.2
+	Version: 0.3
 */
 
 /*
@@ -74,12 +74,19 @@ class CAW_Widget extends WP_Widget {
 
 		$title = apply_filters( 'widget_title', $instance['title'] );
 		$widget_style = $instance['style'];
+		if( $instance['text_style'] == 'uppercase' ) {
+			$text_style = ' style="text-transform: uppercase;"';
+		} elseif( $instance['text_style'] == 'capitalize' ) {
+			$text_style = ' style="text-transform: capitalize;"';
+		} else {
+			$text_style = '';
+		}
 
 		echo $before_widget;
 		if ( $title ) echo $before_title . $title . $after_title;
-		echo '<ul class="compact-archives">';
+		echo '<ul class="compact-archives"' . $text_style . '>';
 			if ( function_exists( 'compact_archive' ) ) {
-				compact_archive( $style=$widget_style );
+				compact_archive( $style = $widget_style );
 			}
 		echo '</ul>';
 		echo $after_widget;
@@ -89,6 +96,7 @@ class CAW_Widget extends WP_Widget {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags( $new_instance['title'] );
 		$instance['style'] = $new_instance['style'];
+		$instance['text_style'] = $new_instance['text_style'];
 		return $instance;
 	}
 
@@ -99,6 +107,7 @@ class CAW_Widget extends WP_Widget {
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults );
 		$style = $instance['style'];
+		$text_style = $instance['text_style'];
 		?>
 			<p>
 				<label for="<?php echo $this->get_field_id('title'); ?>">
@@ -106,10 +115,11 @@ class CAW_Widget extends WP_Widget {
 				</label>
 				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $instance['title']; ?>" />
 			</p>
+
 			<p>
 				<label for="<?php echo $this->get_field_id( 'style' ); ?>">
 					<?php _e( 'Select the style:', 'caw-domain' ); ?>
-				</label>
+				</label><br />
 				<select name="<?php echo $this->get_field_name( 'style' ); ?>" >
 					<option <?php selected( 'initial', $style ); ?> value="initial">
 						<?php _e( 'Initials', 'caw-domain' ); ?>
@@ -119,6 +129,23 @@ class CAW_Widget extends WP_Widget {
 					</option>
 					<option <?php selected( 'numeric', $style ); ?> value="numeric">
 						<?php _e( 'Numeric', 'caw-domain' ); ?>
+					</option>
+				</select>
+			</p>
+
+			<p>
+				<label for="<?php echo $this->get_field_id( 'text_style' ); ?>">
+					<?php _e( 'Transform text:', 'caw-domain' ); ?>
+				</label>
+				<select name="<?php echo $this->get_field_name( 'text_style' ); ?>" >
+					<option <?php selected( 'None', $text_style ); ?> value="none">
+						<?php _e( 'None transformation', 'caw-domain' ); ?>
+					</option>
+					<option <?php selected( 'uppercase', $text_style ); ?> value="uppercase">
+						<?php _e( 'UPPERCASE', 'caw-domain' ); ?>
+					</option>
+					<option <?php selected( 'capitalize', $text_style ); ?> value="capitalize">
+						<?php _e( 'Capitalize', 'caw-domain' ); ?>
 					</option>
 				</select>
 			</p>
