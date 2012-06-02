@@ -4,7 +4,7 @@ Donate link: http://www.aldolat.it/wordpress/wordpress-plugins/compact-archives-
 Tags: archive, archives, posts, widget
 Requires at least: 1.5
 Tested up to: 3.3.2
-Stable tag: 0.1.2
+Stable tag: 0.2
 
 Create a widget for Compact Archives plugin.
 

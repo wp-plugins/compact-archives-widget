@@ -7,7 +7,7 @@
 	Author URI: http://www.aldolat.it/
 	Domain Path: /languages
 	Text Domain: caw-domain
-	Version: 0.1.2
+	Version: 0.2
 */
 
 /*
