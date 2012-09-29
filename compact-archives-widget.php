@@ -7,7 +7,7 @@
 	Author URI: http://www.aldolat.it/
 	Domain Path: /languages
 	Text Domain: caw-domain
-	Version: 0.3
+	Version: 0.3.1
 */
 
 /*
@@ -164,7 +164,7 @@ function caw_load_languages() {
 	load_plugin_textdomain( 'caw-domain', false, dirname( plugin_basename( __FILE__ ) ) . '/languages');
 }
 
-add_action( 'init', 'caw_load_languages' );
+add_action( 'plugins_loaded', 'caw_load_languages' );
 
 /***********************************************************************
  *                            CODE IS POETRY

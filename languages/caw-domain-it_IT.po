@@ -68,7 +68,7 @@ msgstr "MAIUSCOLO"
 
 #: compact-archives-widget.php:148
 msgid "Capitalize"
-msgstr "Iniziali maiuscole"
+msgstr "Iniziali Maiuscole"
 
 #. Plugin URI of the plugin/theme
 msgid "http://www.aldolat.it/wordpress/wordpress-plugins/compact-archives-widget/"
