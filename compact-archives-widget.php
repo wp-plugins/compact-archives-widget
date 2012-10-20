@@ -1,65 +1,53 @@
 <?php
-/*
-	Plugin Name: Compact Archives Widget
-	Description: Create a widget for Compact Archives plugin
-	Plugin URI: http://www.aldolat.it/wordpress/wordpress-plugins/compact-archives-widget/
-	Author: Aldo Latino
-	Author URI: http://www.aldolat.it/
-	Domain Path: /languages
-	Text Domain: caw-domain
-	Version: 0.3.1
-*/
-
-/*
-	Copyright (C) 2010  Aldo Latino  (email : aldolat@gmail.com)
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program. If not, see <http://www.gnu.org/licenses/>.
-*/
-
 /**
- * Check if the main plugin Compact Archives is active
- * otherwise display a notice
+ * Plugin Name: Compact Archives Widget
+ * Description: Create a widget for Compact Archives plugin
+ * Plugin URI: http://www.aldolat.it/wordpress/wordpress-plugins/compact-archives-widget/
+ * Author: Aldo Latino
+ * Author URI: http://www.aldolat.it/
+ * Version: 0.4
+ * License: GPLv3 or later
+ * Text Domain: caw-domain
+ * Domain Path: /languages
  *
- * @since 0.1
+ * Copyright (C) 2008, 2012  Aldo Latino  (email : aldolat@gmail.com)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @package CompactArchivesWidget
+ * @version 0.4
+ * @author Aldo Latino <aldolat@gmail.com>
+ * @copyright Copyright (c) 2008-2012, Aldo Latino
+ * @link http://www.aldolat.it/wordpress/wordpress-plugins/compact-archives-widget/
+ * @license http://www.gnu.org/licenses/gpl.html
  */
-
-add_action( 'admin_init', 'caw_init' );
-
-function caw_init() {
-	if ( ! is_plugin_active( 'compact-archives/compact.php' ) ) {
-		add_action( 'admin_notices', create_function( '', "echo '<div class=\"error\"><p>".sprintf( __( '"Compact Archive" plugin is not active on your WordPress. Please, <a href="%s">install from here</a>: search for "Compact Archives", click on Install, and activate it.', 'caw-domain' ), admin_url( 'plugin-install.php' ) )."</p></div>';" ) );
-	}
-}
-
-add_action( 'widgets_init', 'caw_load_widget' );
 
 /**
  * Register the widget
  *
  * @since 0.1
  */
-
 function caw_load_widget() {
 	register_widget( 'CAW_Widget' );
 }
+add_action( 'widgets_init', 'caw_load_widget' );
 
 /**
  * Create the widget
  *
  * @since 0.1
  */
-
 class CAW_Widget extends WP_Widget {
 	function CAW_Widget() {
 		$widget_ops = array(
@@ -74,22 +62,32 @@ class CAW_Widget extends WP_Widget {
 
 		$title = apply_filters( 'widget_title', $instance['title'] );
 		$widget_style = $instance['style'];
-		if( $instance['text_style'] == 'uppercase' ) {
-			$text_style = ' style="text-transform: uppercase;"';
-		} elseif( $instance['text_style'] == 'capitalize' ) {
-			$text_style = ' style="text-transform: capitalize;"';
-		} else {
-			$text_style = '';
+		switch( $instance['text_style'] ) {
+		    case 'none' :
+		        $text_style = '';
+		        break;
+		    case 'uppercase' :
+		        $text_style = ' style="text-transform: uppercase;"';
+		        break;
+		    case 'capitalize':
+		        $text_style = ' style="text-transform: capitalize;"';
+		        break;
 		}
 
 		echo $before_widget;
-		if ( $title ) echo $before_title . $title . $after_title;
-		echo '<ul class="compact-archives"' . $text_style . '>';
-			if ( function_exists( 'compact_archive' ) ) {
+		if ( $title ) echo $before_title . $title . $after_title; ?>
+		<ul class="compact-archives"<?php echo $text_style; ?>>
+			<?php if( function_exists( 'compact_archive' ) ) :
 				compact_archive( $style = $widget_style );
-			}
-		echo '</ul>';
-		echo $after_widget;
+			else : ?>
+				<li>
+					<?php printf( __( 'The %1$sCompact Archives%2$s plugin is not active. Please install it and activate it.', 'caw-domain' ),
+					'<a href="http://wordpress.org/extend/plugins/compact-archives/">',
+					'</a>' ); ?>
+				</li>
+			<?php endif; ?>
+		</ul>
+		<?php echo $after_widget;
 	}
 
 	function update( $new_instance, $old_instance ) {
@@ -103,12 +101,26 @@ class CAW_Widget extends WP_Widget {
 	function form( $instance ) {
 		$defaults = array(
 			'title' => __( 'Archives by Month', 'caw-domain' ),
-			'style' => 'initial'
+			'style' => 'initial',
+			'text_style' => 'uppercase'
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults );
 		$style = $instance['style'];
 		$text_style = $instance['text_style'];
 		?>
+
+			<?php if ( ! is_plugin_active( 'compact-archives/compact.php' ) ) { ?>
+				<p style="background-color: #FFD5D5; padding: 10px;">
+					<?php
+						printf( __( '%3$sNotice.%4$s The main Compact Archive plugin is not active on your WordPress. Please, %1$sinstall from here%2$s: search for %3$sCompact Archives%4$s, click on Install, and activate it.', 'caw-domain' ),
+							'<a href="' . admin_url( 'plugin-install.php' ) . '">',
+							'</a>',
+							'<strong>',
+							'</strong>'
+						); ?>
+				</p>
+			<?php } ?>
+
 			<p>
 				<label for="<?php echo $this->get_field_id('title'); ?>">
 					<?php _e( 'Title:', 'caw-domain' ); ?>

@@ -4,7 +4,9 @@ Donate link: http://www.aldolat.it/wordpress/wordpress-plugins/compact-archives-
 Tags: archive, archives, posts, widget
 Requires at least: 1.5
 Tested up to: 3.4.2
-Stable tag: 0.3.1
+Stable tag: 0.4
+License: GPLv3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Create a widget for Compact Archives plugin.
 
@@ -28,6 +30,7 @@ This section describes how to install the plugin and get it working.
 It is not needed.
 
 = May I change the appearance of the archive links? =
+
 Yes. Using your theme CSS, you can create the styles you need.
 
 == Screenshots ==
@@ -36,6 +39,12 @@ Yes. Using your theme CSS, you can create the styles you need.
 2. An example of rendered widget
 
 == Changelog ==
+
+= 0.3.2 =
+
+* Removed the scary notice at top of dashboard page and moved into the widget panel.
+* Added a notice in the rendered widget if the user does not have the main plugin installed and active.
+* Some minor code improvements.
 
 = 0.3.1 =
 
