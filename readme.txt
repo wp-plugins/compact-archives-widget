@@ -40,7 +40,7 @@ Yes. Using your theme CSS, you can create the styles you need.
 
 == Changelog ==
 
-= 0.3.2 =
+= 0.4 =
 
 * Removed the scary notice at top of dashboard page and moved into the widget panel.
 * Added a notice in the rendered widget if the user does not have the main plugin installed and active.
