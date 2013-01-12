@@ -5,12 +5,12 @@
  * Plugin URI: http://www.aldolat.it/wordpress/wordpress-plugins/compact-archives-widget/
  * Author: Aldo Latino
  * Author URI: http://www.aldolat.it/
- * Version: 0.4
+ * Version: 0.4.1
  * License: GPLv3 or later
  * Text Domain: caw-domain
  * Domain Path: /languages
  *
- * Copyright (C) 2008, 2012  Aldo Latino  (email : aldolat@gmail.com)
+ * Copyright (C) 2008, 2013  Aldo Latino  (email : aldolat@gmail.com)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  * @package CompactArchivesWidget
- * @version 0.4
+ * @version 0.4.1
  * @author Aldo Latino <aldolat@gmail.com>
  * @copyright Copyright (c) 2008-2012, Aldo Latino
  * @link http://www.aldolat.it/wordpress/wordpress-plugins/compact-archives-widget/
