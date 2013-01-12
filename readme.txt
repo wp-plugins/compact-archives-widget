@@ -3,8 +3,8 @@ Contributors: aldolat
 Donate link: http://www.aldolat.it/wordpress/wordpress-plugins/compact-archives-widget/
 Tags: archive, archives, posts, widget
 Requires at least: 1.5
-Tested up to: 3.4.2
-Stable tag: 0.4
+Tested up to: 3.5
+Stable tag: 0.4.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -39,6 +39,10 @@ Yes. Using your theme CSS, you can create the styles you need.
 2. An example of rendered widget
 
 == Changelog ==
+
+= 0.4.1 =
+
+* Some minor code improvements.
 
 = 0.4 =
 
