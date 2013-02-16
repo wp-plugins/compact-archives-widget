@@ -1,6 +1,6 @@
 === Compact Archives Widget ===
 Contributors: aldolat
-Donate link: http://www.aldolat.it/wordpress/wordpress-plugins/compact-archives-widget/
+Donate link: http://dev.aldolat.it/projects/compact-archives-widget/
 Tags: archive, archives, posts, widget
 Requires at least: 1.5
 Tested up to: 3.5

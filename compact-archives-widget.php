@@ -2,14 +2,16 @@
 /**
  * Plugin Name: Compact Archives Widget
  * Description: Create a widget for Compact Archives plugin
- * Plugin URI: http://www.aldolat.it/wordpress/wordpress-plugins/compact-archives-widget/
+ * Plugin URI: http://dev.aldolat.it/projects/compact-archives-widget/
  * Author: Aldo Latino
  * Author URI: http://www.aldolat.it/
  * Version: 0.4.1
  * License: GPLv3 or later
  * Text Domain: caw-domain
  * Domain Path: /languages
- *
+ */
+
+/*
  * Copyright (C) 2008, 2013  Aldo Latino  (email : aldolat@gmail.com)
  *
  * This program is free software: you can redistribute it and/or modify
