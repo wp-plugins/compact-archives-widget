@@ -12,6 +12,11 @@ Create a widget for Compact Archives plugin.
 
 == Description ==
 
+**DOT NOT INSTALL THIS PLUGIN BECAUSE IT'S NOT NEEDED ANYMORE.**
+
+**As of version 3.0.0 the plugin [Compact Archives](http://wordpress.org/plugins/compact-archives) includes my own code, so you'll find this widget in that plugin.**
+
+
 The plugin [Compact Archives](http://wordpress.org/extend/plugins/compact-archives/ "Compact Archives plugin page") has not a widget. This plugin adds this widget to that plugin.
 Before using Compact Archives Widget, you must install and activate Compact Archives plugin.
 
