@@ -12,7 +12,7 @@ Create a widget for Compact Archives plugin.
 
 == Description ==
 
-**DOT NOT INSTALL THIS PLUGIN BECAUSE IT'S NOT NEEDED ANYMORE.**
+**DO NOT INSTALL THIS PLUGIN BECAUSE IT'S NOT NEEDED ANYMORE.**
 
 **As of version 3.0.0 the plugin [Compact Archives](http://wordpress.org/plugins/compact-archives) includes my own code, so you'll find this widget in that plugin.**
 
