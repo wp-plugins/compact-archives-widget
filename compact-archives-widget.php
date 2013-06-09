@@ -63,39 +63,42 @@ class CAW_Widget extends WP_Widget {
 		extract( $args );
 
 		$title = apply_filters( 'widget_title', $instance['title'] );
-		$widget_style = $instance['style'];
-		switch( $instance['text_style'] ) {
-		    case 'none' :
-		        $text_style = '';
-		        break;
-		    case 'uppercase' :
-		        $text_style = ' style="text-transform: uppercase;"';
-		        break;
-		    case 'capitalize':
-		        $text_style = ' style="text-transform: capitalize;"';
-		        break;
+
+		switch ( $instance['text_style'] ) {
+		case 'none' :
+			$text_style = '';
+			break;
+		case 'uppercase' :
+			$text_style = ' style="text-transform: uppercase;"';
+			break;
+		case 'capitalize':
+			$text_style = ' style="text-transform: capitalize;"';
+			break;
 		}
 
 		echo $before_widget;
+
 		if ( $title ) echo $before_title . $title . $after_title; ?>
+
 		<ul class="compact-archives"<?php echo $text_style; ?>>
-			<?php if( function_exists( 'compact_archive' ) ) :
-				compact_archive( $style = $widget_style );
-			else : ?>
+			<?php if ( function_exists( 'compact_archive' ) ) {
+				compact_archive( $style = $instance['style'] );
+			} else { ?>
 				<li>
 					<?php printf( __( 'The %1$sCompact Archives%2$s plugin is not active. Please install it and activate it.', 'caw-domain' ),
-					'<a href="http://wordpress.org/extend/plugins/compact-archives/">',
-					'</a>' ); ?>
+				'<a href="http://wordpress.org/extend/plugins/compact-archives/">',
+				'</a>' ); ?>
 				</li>
-			<?php endif; ?>
+			<?php } ?>
 		</ul>
+
 		<?php echo $after_widget;
 	}
 
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
-		$instance['title'] = strip_tags( $new_instance['title'] );
-		$instance['style'] = $new_instance['style'];
+		$instance['title']      = strip_tags( $new_instance['title'] );
+		$instance['style']      = $new_instance['style'];
 		$instance['text_style'] = $new_instance['text_style'];
 		return $instance;
 	}
@@ -107,64 +110,59 @@ class CAW_Widget extends WP_Widget {
 			'text_style' => 'uppercase'
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults );
-		$style = $instance['style'];
-		$text_style = $instance['text_style'];
-		?>
 
-			<?php if ( ! is_plugin_active( 'compact-archives/compact.php' ) ) { ?>
-				<p style="background-color: #FFD5D5; padding: 10px;">
-					<?php
-						printf( __( '%3$sNotice.%4$s The main Compact Archive plugin is not active on your WordPress. Please, %1$sinstall from here%2$s: search for %3$sCompact Archives%4$s, click on Install, and activate it.', 'caw-domain' ),
-							'<a href="' . admin_url( 'plugin-install.php' ) . '">',
-							'</a>',
-							'<strong>',
-							'</strong>'
-						); ?>
-				</p>
-			<?php } ?>
-
-			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id('title') ); ?>">
-					<?php _e( 'Title:', 'caw-domain' ); ?>
-				</label>
-				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" />
+		if ( ! is_plugin_active( 'compact-archives/compact.php' ) ) { ?>
+			<p style="background-color: #FFD5D5; padding: 10px;">
+				<?php printf( __( '%3$sNotice.%4$s The main Compact Archive plugin is not active on your WordPress. Please, %1$sinstall from here%2$s: search for %3$sCompact Archives%4$s, click on Install, and activate it.', 'caw-domain' ),
+					'<a href="' . admin_url( 'plugin-install.php' ) . '">',
+					'</a>',
+					'<strong>',
+					'</strong>'
+				); ?>
 			</p>
+		<?php } ?>
 
-			<p>
-				<label for="<?php echo $this->get_field_id( 'style' ); ?>">
-					<?php _e( 'Select the style:', 'caw-domain' ); ?>
-				</label><br />
-				<select name="<?php echo $this->get_field_name( 'style' ); ?>" >
-					<option <?php selected( 'initial', $style ); ?> value="initial">
-						<?php _e( 'Initials', 'caw-domain' ); ?>
-					</option>
-					<option <?php selected( 'block', $style ); ?> value="block">
-						<?php _e( 'Block', 'caw-domain' ); ?>
-					</option>
-					<option <?php selected( 'numeric', $style ); ?> value="numeric">
-						<?php _e( 'Numeric', 'caw-domain' ); ?>
-					</option>
-				</select>
-			</p>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>">
+				<?php _e( 'Title:', 'caw-domain' ); ?>
+			</label>
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>" />
+		</p>
 
-			<p>
-				<label for="<?php echo $this->get_field_id( 'text_style' ); ?>">
-					<?php _e( 'Transform text:', 'caw-domain' ); ?>
-				</label>
-				<select name="<?php echo $this->get_field_name( 'text_style' ); ?>" >
-					<option <?php selected( 'None', $text_style ); ?> value="none">
-						<?php _e( 'None transformation', 'caw-domain' ); ?>
-					</option>
-					<option <?php selected( 'uppercase', $text_style ); ?> value="uppercase">
-						<?php _e( 'UPPERCASE', 'caw-domain' ); ?>
-					</option>
-					<option <?php selected( 'capitalize', $text_style ); ?> value="capitalize">
-						<?php _e( 'Capitalize', 'caw-domain' ); ?>
-					</option>
-				</select>
-			</p>
-		<?php
-	}
+		<p>
+			<label for="<?php echo $this->get_field_id( 'style' ); ?>">
+				<?php _e( 'Select the style:', 'caw-domain' ); ?>
+			</label><br />
+			<select name="<?php echo $this->get_field_name( 'style' ); ?>" >
+				<option <?php selected( 'initial', $instance['style'] ); ?> value="initial">
+					<?php _e( 'Initials', 'caw-domain' ); ?>
+				</option>
+				<option <?php selected( 'block', $instance['style'] ); ?> value="block">
+					<?php _e( 'Block', 'caw-domain' ); ?>
+				</option>
+				<option <?php selected( 'numeric', $instance['style'] ); ?> value="numeric">
+					<?php _e( 'Numeric', 'caw-domain' ); ?>
+				</option>
+			</select>
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'text_style' ); ?>">
+				<?php _e( 'Transform text:', 'caw-domain' ); ?>
+			</label>
+			<select name="<?php echo $this->get_field_name( 'text_style' ); ?>" >
+				<option <?php selected( 'none', $instance['text_style'] ); ?> value="none">
+					<?php _e( 'None transformation', 'caw-domain' ); ?>
+				</option>
+				<option <?php selected( 'uppercase', $instance['text_style'] ); ?> value="uppercase">
+					<?php _e( 'UPPERCASE', 'caw-domain' ); ?>
+				</option>
+				<option <?php selected( 'capitalize', $instance['text_style'] ); ?> value="capitalize">
+					<?php _e( 'Capitalize', 'caw-domain' ); ?>
+				</option>
+			</select>
+		</p>
+	<?php }
 }
 
 /**
@@ -175,7 +173,7 @@ class CAW_Widget extends WP_Widget {
  */
 
 function caw_load_languages() {
-	load_plugin_textdomain( 'caw-domain', false, dirname( plugin_basename( __FILE__ ) ) . '/languages');
+	load_plugin_textdomain( 'caw-domain', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
 
 add_action( 'plugins_loaded', 'caw_load_languages' );
