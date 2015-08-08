@@ -3,7 +3,7 @@
 **Donate link:** http://dev.aldolat.it/projects/compact-archives-widget/  
 **Tags:** archive, archives, posts, widget  
 **Requires at least:** 1.5  
-**Tested up to:** 3.5  
+**Tested up to:** 4.3  
 **Stable tag:** 0.4.2  
 **License:** GPLv3 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-3.0.html  
