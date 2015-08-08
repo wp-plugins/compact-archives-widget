@@ -1,0 +1,91 @@
+# Copyright (C) 2012 Compact Archives Widget
+# This file is distributed under the same license as the Compact Archives Widget package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Compact Archives Widget 0.3.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/compact-archives-widget\n"
+"POT-Creation-Date: 2012-10-20 07:55:38+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2012-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#. #-#-#-#-#  caw-domain.pot (Compact Archives Widget 0.3.2)  #-#-#-#-#
+#. Description of the plugin/theme
+#: compact-archives-widget.php:49
+msgid "Create a widget for Compact Archives plugin"
+msgstr ""
+
+#. #-#-#-#-#  caw-domain.pot (Compact Archives Widget 0.3.2)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: compact-archives-widget.php:51
+msgid "Compact Archives Widget"
+msgstr ""
+
+#: compact-archives-widget.php:78
+msgid ""
+"The %1$sCompact Archives%2$s plugin is not active. Please install it and "
+"activate it."
+msgstr ""
+
+#: compact-archives-widget.php:97
+msgid "Archives by Month"
+msgstr ""
+
+#: compact-archives-widget.php:108
+msgid ""
+"%3$sNotice.%4$s The main Compact Archive plugin is not active on your "
+"WordPress. Please, %1$sinstall from here%2$s: search for %3$sCompact Archives"
+"%4$s, click on Install, and activate it."
+msgstr ""
+
+#: compact-archives-widget.php:119
+msgid "Title:"
+msgstr ""
+
+#: compact-archives-widget.php:126
+msgid "Select the style:"
+msgstr ""
+
+#: compact-archives-widget.php:130
+msgid "Initials"
+msgstr ""
+
+#: compact-archives-widget.php:133
+msgid "Block"
+msgstr ""
+
+#: compact-archives-widget.php:136
+msgid "Numeric"
+msgstr ""
+
+#: compact-archives-widget.php:143
+msgid "Transform text:"
+msgstr ""
+
+#: compact-archives-widget.php:147
+msgid "None transformation"
+msgstr ""
+
+#: compact-archives-widget.php:150
+msgid "UPPERCASE"
+msgstr ""
+
+#: compact-archives-widget.php:153
+msgid "Capitalize"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid ""
+"http://www.aldolat.it/wordpress/wordpress-plugins/compact-archives-widget/"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Aldo Latino"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.aldolat.it/"
+msgstr ""

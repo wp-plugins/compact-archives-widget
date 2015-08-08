@@ -1,0 +1,90 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Compact Archives Widget\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/compact-archives-widget\n"
+"POT-Creation-Date: 2012-10-20 07:55:38+00:00\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Aldo Latino <aldolat@gmail.com>\n"
+"Language-Team: Aldo Latino <aldolat@gmail.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#. #-#-#-#-#  caw-domain.pot (Compact Archives Widget 0.3.2)  #-#-#-#-#
+#. Description of the plugin/theme
+#: compact-archives-widget.php:49
+msgid "Create a widget for Compact Archives plugin"
+msgstr "Crea un widget per il plugin Compact Archives"
+
+#. #-#-#-#-#  caw-domain.pot (Compact Archives Widget 0.3.2)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: compact-archives-widget.php:51
+msgid "Compact Archives Widget"
+msgstr "Compact Archives Widget"
+
+#: compact-archives-widget.php:78
+msgid "The %1$sCompact Archives%2$s plugin is not active. Please install it and activate it."
+msgstr "Il plugin %1$sCompact Archives%2$s non è attivo. Si prega di installarlo e attivarlo."
+
+#: compact-archives-widget.php:97
+msgid "Archives by Month"
+msgstr "Archivio mensile"
+
+#: compact-archives-widget.php:108
+msgid "%3$sNotice.%4$s The main Compact Archive plugin is not active on your WordPress. Please, %1$sinstall from here%2$s: search for %3$sCompact Archives%4$s, click on Install, and activate it."
+msgstr "%3$sNotifica.%4$s Il plugin principale Compact Archive non è attivo nel tuo WordPress. Si prega di %1$sinstallarlo da qui%2$s: cerca %3$sCompact Archives%4$s, fai clic su Installa e poi su Attiva."
+
+#: compact-archives-widget.php:119
+msgid "Title:"
+msgstr "Titolo:"
+
+#: compact-archives-widget.php:126
+msgid "Select the style:"
+msgstr "Seleziona lo stile:"
+
+#: compact-archives-widget.php:130
+msgid "Initials"
+msgstr "Iniziali"
+
+#: compact-archives-widget.php:133
+msgid "Block"
+msgstr "Blocco"
+
+#: compact-archives-widget.php:136
+msgid "Numeric"
+msgstr "Numerico"
+
+#: compact-archives-widget.php:143
+msgid "Transform text:"
+msgstr "Trasforma il testo in:"
+
+#: compact-archives-widget.php:147
+msgid "None transformation"
+msgstr "Nessuna trasformazione"
+
+#: compact-archives-widget.php:150
+msgid "UPPERCASE"
+msgstr "MAIUSCOLO"
+
+#: compact-archives-widget.php:153
+msgid "Capitalize"
+msgstr "Iniziali Maiuscole"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.aldolat.it/wordpress/wordpress-plugins/compact-archives-widget/"
+msgstr "http://www.aldolat.it/wordpress/wordpress-plugins/compact-archives-widget/"
+
+#. Author of the plugin/theme
+msgid "Aldo Latino"
+msgstr "Aldo Latino"
+
+#. Author URI of the plugin/theme
+msgid "http://www.aldolat.it/"
+msgstr "http://www.aldolat.it/"
+
+#~ msgid "Make all text uppercase"
+#~ msgstr "Rendi il testo in maiuscolo"
