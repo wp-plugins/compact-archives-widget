@@ -4,7 +4,7 @@
 **Tags:** archive, archives, posts, widget  
 **Requires at least:** 1.5  
 **Tested up to:** 3.5  
-**Stable tag:** 0.4.1  
+**Stable tag:** 0.4.2  
 **License:** GPLv3 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -15,7 +15,6 @@ Create a widget for Compact Archives plugin.
 **DO NOT INSTALL THIS PLUGIN BECAUSE IT'S NOT NEEDED ANYMORE.**
 
 **As of version 3.0.0 the plugin [Compact Archives](http://wordpress.org/plugins/compact-archives) includes my own code, so you'll find this widget in that plugin.**
-
 
 The plugin [Compact Archives](http://wordpress.org/extend/plugins/compact-archives/ "Compact Archives plugin page") has not a widget. This plugin adds this widget to that plugin.
 Before using Compact Archives Widget, you must install and activate Compact Archives plugin.
@@ -41,13 +40,17 @@ Yes. Using your theme CSS, you can create the styles you need.
 ## Screenshots ##
 
 ### 1. The settings panel of the widget ###
-![1. The settings panel of the widget](http://s.wordpress.org/extend/plugins/compact-archives-widget/screenshot-1.png)
+![1. The settings panel of the widget](http://ps.w.org/compact-archives-widget/assets/screenshot-1.png)
 
 ### 2. An example of rendered widget ###
-![2. An example of rendered widget](http://s.wordpress.org/extend/plugins/compact-archives-widget/screenshot-2.png)
+![2. An example of rendered widget](http://ps.w.org/compact-archives-widget/assets/screenshot-2.png)
 
 
 ## Changelog ##
+
+### 0.4.2 ###
+
+* Switched to PHP5 __contruct() in creating the widget.
 
 ### 0.4.1 ###
 

@@ -5,14 +5,14 @@
  * Plugin URI: http://dev.aldolat.it/projects/compact-archives-widget/
  * Author: Aldo Latino
  * Author URI: http://www.aldolat.it/
- * Version: 0.4.1
+ * Version: 0.4.2
  * License: GPLv3 or later
  * Text Domain: caw-domain
  * Domain Path: /languages
  */
 
 /*
- * Copyright (C) 2008, 2013  Aldo Latino  (email : aldolat@gmail.com)
+ * Copyright (C) 2008, 2015  Aldo Latino  (email : aldolat@gmail.com)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,13 +26,6 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
- *
- * @package CompactArchivesWidget
- * @version 0.4.1
- * @author Aldo Latino <aldolat@gmail.com>
- * @copyright Copyright (c) 2008-2012, Aldo Latino
- * @link http://www.aldolat.it/wordpress/wordpress-plugins/compact-archives-widget/
- * @license http://www.gnu.org/licenses/gpl.html
  */
 
 /**
@@ -51,15 +44,20 @@ add_action( 'widgets_init', 'caw_load_widget' );
  * @since 0.1
  */
 class CAW_Widget extends WP_Widget {
-	function CAW_Widget() {
+	public function __construct() {
 		$widget_ops = array(
 			'classname'   => 'caw_widget',
 			'description' => __( 'Create a widget for Compact Archives plugin', 'caw-domain' )
 		);
-		$this->WP_Widget( 'caw-widget', __( 'Compact Archives Widget', 'caw-domain' ), $widget_ops );
+
+		parent::__construct(
+			'caw-widget',
+			__( 'Compact Archives Widget', 'caw-domain' ),
+			$widget_ops
+		);
 	}
 
-	function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {
 		extract( $args );
 
 		$title = apply_filters( 'widget_title', $instance['title'] );
@@ -95,7 +93,7 @@ class CAW_Widget extends WP_Widget {
 		<?php echo $after_widget;
 	}
 
-	function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title']      = strip_tags( $new_instance['title'] );
 		$instance['style']      = $new_instance['style'];
@@ -103,7 +101,7 @@ class CAW_Widget extends WP_Widget {
 		return $instance;
 	}
 
-	function form( $instance ) {
+	public function form( $instance ) {
 		$defaults = array(
 			'title'      => __( 'Archives by Month', 'caw-domain' ),
 			'style'      => 'initial',
